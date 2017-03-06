@@ -1,0 +1,39 @@
+syntax = "proto2";
+
+package dto;
+
+enum EnumValue {
+    None = 0;
+    Some = 1;
+    Other = 3;
+}
+
+message Values {
+    required double ValDouble = 1;
+    required float ValFloat = 2;
+    required int32 ValInt32 = 3 [default = 42];
+    required int64 ValInt64 = 4;
+    required uint32 ValUInt32 = 5;
+    required uint64 ValUInt64 = 6;
+    required sint32 ValSInt32 = 7;
+    required sint64 ValSInt64 = 8;
+    required fixed32 ValFixed32 = 9;
+    required fixed64 ValFixed64 = 10;
+    required sfixed32 ValSFixed32 = 11;
+    required sfixed64 ValSFixed64 = 12;
+    required bool ValBool = 13;
+    required string ValString = 14;
+    required bytes ValBytes = 15;
+    required EnumValue ValEnum = 16;
+}
+
+message NestedChild {
+    required float x = 1;
+    required float y = 2;
+}
+
+message NestedParent {
+    optional NestedChild optional_child = 1;
+    required NestedChild required_child = 2;
+    repeated NestedChild childs = 3;
+}
