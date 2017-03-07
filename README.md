@@ -144,7 +144,7 @@ TEST_CASE("nice_errors")
 
 ### C++14
 
-A C++ compiler shat supports C++14 is required. 
+A C++ compiler supporting C++14 is required. 
 You can use -std=c++14 flag for sufficiently recent versions 
 of GCC (4.9) or CLANG (3.7). Library was tested on CLANG for use 
 on iOS and Android.
