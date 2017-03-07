@@ -1,3 +1,13 @@
+/*
+ * Copyright 2017 TRAFI
+ *
+ * Licensed under the Apache License, Version 2.0, <LICENSE-APACHE or
+ * http://apache.org/licenses/LICENSE-2.0> or the MIT license <LICENSE-MIT or
+ * http://opensource.org/licenses/MIT>, at your option. This file may not be
+ * copied, modified, or distributed except according to those terms.
+ *
+ */
+
 #include "field_ref.hpp"
 
 #include <sstream>
@@ -28,7 +38,9 @@ namespace {
     {
         if (nullptr != field.parent) {
             output_full_field_name(*field.parent, ss);
-            ss << ".";
+            if (field.array_index() == -1) {
+                ss << ".";
+            }
         }
 
         ss << field.name();

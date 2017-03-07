@@ -1,3 +1,13 @@
+/*
+ * Copyright 2017 TRAFI
+ *
+ * Licensed under the Apache License, Version 2.0, <LICENSE-APACHE or
+ * http://apache.org/licenses/LICENSE-2.0> or the MIT license <LICENSE-MIT or
+ * http://opensource.org/licenses/MIT>, at your option. This file may not be
+ * copied, modified, or distributed except according to those terms.
+ *
+ */
+
 #include "proson.hpp"
 
 #include <google/protobuf/repeated_field.h>
@@ -22,6 +32,27 @@ namespace {
                                                      google::protobuf::Message* m,
                                                      const json& j);
 
+    result_value<const google::protobuf::EnumValueDescriptor*> enum_int_to_value_type(
+        const std::shared_ptr<FieldRef>& field_ref,
+        const google::protobuf::FieldDescriptor* f,
+        int number)
+    {
+        const auto& enum_type = f->enum_type();
+        const EnumValueDescriptor* value_type = nullptr;
+        for (int i = 0; i < enum_type->value_count(); i++) {
+            const auto& item = enum_type->value(i);
+            if (item->number() == number) {
+                value_type = item;
+                break;
+            }
+        }
+        if (nullptr == value_type) {
+            return result_value<const google::protobuf::EnumValueDescriptor*>::err(
+                error_json_field_invalid_enum_value_type(field_ref, number, enum_type));
+        }
+        return result_value<const google::protobuf::EnumValueDescriptor*>::ok(value_type);
+    }
+
     result merge_field_repeated(const std::shared_ptr<FieldRef>& field_ref,
                                 google::protobuf::Message* m,
                                 const google::protobuf::FieldDescriptor* f,
@@ -42,7 +73,7 @@ namespace {
         }
 
         if (!it->is_array()) {
-            return result::err(error_json_field_invalid_type(field_ref, "array", j.dump()));
+            return result::err(error_json_field_invalid_type(field_ref, "array", it->dump()));
         }
 
         reflection->ClearField(m, f);
@@ -68,22 +99,84 @@ namespace {
                     break;
                 }
                 case FieldDescriptor::TYPE_ENUM:
+                    merge_res = to_enum_int(array_val_ref, array_val)
+                                    .and_then([&](int number) {
+                                        return enum_int_to_value_type(array_val_ref, f, number);
+                                    })
+                                    .and_then([&](
+                                        const google::protobuf::EnumValueDescriptor* value_type) {
+                                        reflection->AddEnum(m, f, value_type);
+                                        return result_value<int>::ok(0);
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_DOUBLE:
+                    merge_res = to_double(array_val_ref, array_val)
+                                    .map([&](double val) {
+                                        reflection->AddDouble(m, f, val);
+                                        return val;
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_FLOAT:
+                    merge_res = to_double(array_val_ref, array_val)
+                                    .map([&](double val) {
+                                        reflection->AddFloat(m, f, (float)val);
+                                        return val;
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_BOOL:
+                    merge_res = to_bool(array_val_ref, array_val)
+                                    .map([&](bool val) {
+                                        reflection->AddBool(m, f, val);
+                                        return val;
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_INT32:
                 case FieldDescriptor::Type::TYPE_SINT32:
                 case FieldDescriptor::Type::TYPE_SFIXED32:
+                    merge_res = to_int32(array_val_ref, array_val)
+                                    .map([&](int32_t val) {
+                                        reflection->AddInt32(m, f, val);
+                                        return val;
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_UINT32:
                 case FieldDescriptor::Type::TYPE_FIXED32:
+                    merge_res = to_uint32(array_val_ref, array_val)
+                                    .map([&](uint32_t val) {
+                                        reflection->AddUInt32(m, f, val);
+                                        return val;
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_INT64:
                 case FieldDescriptor::Type::TYPE_SINT64:
                 case FieldDescriptor::Type::TYPE_SFIXED64:
+                    merge_res = to_int64(array_val_ref, array_val)
+                                    .map([&](int64_t val) {
+                                        reflection->AddInt64(m, f, val);
+                                        return val;
+                                    })
+                                    .map_void();
+                    break;
                 case FieldDescriptor::Type::TYPE_UINT64:
                 case FieldDescriptor::Type::TYPE_FIXED64:
-                case FieldDescriptor::Type::TYPE_BYTES:
-                case FieldDescriptor::TYPE_GROUP:
+                    merge_res = to_uint64(array_val_ref, array_val)
+                                    .map([&](uint64_t val) {
+                                        reflection->AddUInt64(m, f, val);
+                                        return val;
+                                    })
+                                    .map_void();
                     break;
+                case FieldDescriptor::Type::TYPE_BYTES:
+                    return to_bytes(array_val_ref, array_val).map_void();
+                case FieldDescriptor::TYPE_GROUP:
+                    return result::err(
+                        error_type_conversion_not_implemented(array_val_ref, "group"));
             }
 
             if (!merge_res) {
@@ -119,8 +212,10 @@ namespace {
         }
 
         switch (f->type()) {
-            case FieldDescriptor::TYPE_MESSAGE:
+            case FieldDescriptor::TYPE_MESSAGE: {
+                auto json_val = it->dump();
                 return merge_fields(field_ref, reflection->MutableMessage(m, f), *it);
+            }
             case FieldDescriptor::Type::TYPE_STRING:
                 return to_string(field_ref, *it)
                     .map([&](string val) {
@@ -130,22 +225,11 @@ namespace {
                     .map_void();
             case FieldDescriptor::TYPE_ENUM:
                 return to_enum_int(field_ref, *it)
-                    .and_then([&](int number) {
-                        const auto& enum_type = f->enum_type();
-                        const EnumValueDescriptor* value_type = nullptr;
-                        for (int i = 0; i < enum_type->value_count(); i++) {
-                            const auto& item = enum_type->value(i);
-                            if (item->number() == number) {
-                                value_type = item;
-                                break;
-                            }
-                        }
-                        if (nullptr == value_type) {
-                            return result_value<int>::err(error_json_field_invalid_enum_value_type(
-                                field_ref, number, enum_type));
-                        }
+                    .and_then(
+                        [&](int number) { return enum_int_to_value_type(field_ref, f, number); })
+                    .and_then([&](const google::protobuf::EnumValueDescriptor* value_type) {
                         reflection->SetEnum(m, f, value_type);
-                        return result_value<int>::ok(number);
+                        return result_value<int>::ok(0);
                     })
                     .map_void();
             case FieldDescriptor::Type::TYPE_DOUBLE:
@@ -217,7 +301,7 @@ namespace {
                                                      const json& j)
     {
         if (j.type() != json::value_t::object) {
-            result::err(error_json_field_is_not_an_object(parent_ref));
+            return result::err(error_json_field_invalid_type(parent_ref, "object", j.dump()));
         }
 
         const auto& descriptor = m->GetDescriptor();

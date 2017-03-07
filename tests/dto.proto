@@ -33,7 +33,23 @@ message NestedChild {
 }
 
 message NestedParent {
-    optional NestedChild optional_child = 1;
-    required NestedChild required_child = 2;
-    repeated NestedChild childs = 3;
+    optional NestedChild OptionalChild = 1;
+    required NestedChild RequiredChild = 2;
+    repeated NestedChild Children = 3;
+    repeated double RepDouble = 4;
+    repeated float RepFloat = 5;
+    repeated int32 RepInt32 = 6;
+    repeated int64 RepInt64 = 7;
+    repeated uint32 RepUInt32 = 8;
+    repeated uint64 RepUInt64 = 9;
+    repeated sint32 RepSInt32 = 10;
+    repeated sint64 RepSInt64 = 11;
+    repeated fixed32 RepFixed32 = 12;
+    repeated fixed64 RepFixed64 = 13;
+    repeated sfixed32 RepSFixed32 = 14;
+    repeated sfixed64 RepSFixed64 = 15;
+    repeated bool RepBool = 16;
+    repeated string RepString = 17;
+    repeated bytes RepBytes = 18;
+    repeated EnumValue RepEnum = 19;
 }

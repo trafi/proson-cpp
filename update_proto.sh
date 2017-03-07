@@ -8,3 +8,4 @@ source config
 
 cd tests
 ${PROTO_BIN} --cpp_out=. dto.proto
+${PROTO_BIN} --cpp_out=. example_dto.proto

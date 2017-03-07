@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+package example_dto;
+
+enum Air {
+    Hot = 5;
+    Cold = 0;
+}
+
+message Position {
+    required double x = 1;
+    required double y = 2;
+    required double z = 3;
+}
+
+message Target {
+    required sint64 updated_at = 1;
+    required Position pos = 2;
+}
+
+message Servo {
+    repeated Target targets = 1;
+    optional float rpm = 2;
+    optional Air air = 3;
+}

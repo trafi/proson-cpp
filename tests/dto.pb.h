@@ -524,49 +524,263 @@ class NestedParent : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // repeated .dto.NestedChild childs = 3;
-  int childs_size() const;
-  void clear_childs();
-  static const int kChildsFieldNumber = 3;
-  const ::dto::NestedChild& childs(int index) const;
-  ::dto::NestedChild* mutable_childs(int index);
-  ::dto::NestedChild* add_childs();
+  // repeated .dto.NestedChild Children = 3;
+  int children_size() const;
+  void clear_children();
+  static const int kChildrenFieldNumber = 3;
+  const ::dto::NestedChild& children(int index) const;
+  ::dto::NestedChild* mutable_children(int index);
+  ::dto::NestedChild* add_children();
   ::google::protobuf::RepeatedPtrField< ::dto::NestedChild >*
-      mutable_childs();
+      mutable_children();
   const ::google::protobuf::RepeatedPtrField< ::dto::NestedChild >&
-      childs() const;
+      children() const;
 
-  // optional .dto.NestedChild optional_child = 1;
-  bool has_optional_child() const;
-  void clear_optional_child();
+  // repeated double RepDouble = 4;
+  int repdouble_size() const;
+  void clear_repdouble();
+  static const int kRepDoubleFieldNumber = 4;
+  double repdouble(int index) const;
+  void set_repdouble(int index, double value);
+  void add_repdouble(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      repdouble() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_repdouble();
+
+  // repeated float RepFloat = 5;
+  int repfloat_size() const;
+  void clear_repfloat();
+  static const int kRepFloatFieldNumber = 5;
+  float repfloat(int index) const;
+  void set_repfloat(int index, float value);
+  void add_repfloat(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      repfloat() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_repfloat();
+
+  // repeated int32 RepInt32 = 6;
+  int repint32_size() const;
+  void clear_repint32();
+  static const int kRepInt32FieldNumber = 6;
+  ::google::protobuf::int32 repint32(int index) const;
+  void set_repint32(int index, ::google::protobuf::int32 value);
+  void add_repint32(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      repint32() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_repint32();
+
+  // repeated int64 RepInt64 = 7;
+  int repint64_size() const;
+  void clear_repint64();
+  static const int kRepInt64FieldNumber = 7;
+  ::google::protobuf::int64 repint64(int index) const;
+  void set_repint64(int index, ::google::protobuf::int64 value);
+  void add_repint64(::google::protobuf::int64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      repint64() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_repint64();
+
+  // repeated uint32 RepUInt32 = 8;
+  int repuint32_size() const;
+  void clear_repuint32();
+  static const int kRepUInt32FieldNumber = 8;
+  ::google::protobuf::uint32 repuint32(int index) const;
+  void set_repuint32(int index, ::google::protobuf::uint32 value);
+  void add_repuint32(::google::protobuf::uint32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      repuint32() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_repuint32();
+
+  // repeated uint64 RepUInt64 = 9;
+  int repuint64_size() const;
+  void clear_repuint64();
+  static const int kRepUInt64FieldNumber = 9;
+  ::google::protobuf::uint64 repuint64(int index) const;
+  void set_repuint64(int index, ::google::protobuf::uint64 value);
+  void add_repuint64(::google::protobuf::uint64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      repuint64() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_repuint64();
+
+  // repeated sint32 RepSInt32 = 10;
+  int repsint32_size() const;
+  void clear_repsint32();
+  static const int kRepSInt32FieldNumber = 10;
+  ::google::protobuf::int32 repsint32(int index) const;
+  void set_repsint32(int index, ::google::protobuf::int32 value);
+  void add_repsint32(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      repsint32() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_repsint32();
+
+  // repeated sint64 RepSInt64 = 11;
+  int repsint64_size() const;
+  void clear_repsint64();
+  static const int kRepSInt64FieldNumber = 11;
+  ::google::protobuf::int64 repsint64(int index) const;
+  void set_repsint64(int index, ::google::protobuf::int64 value);
+  void add_repsint64(::google::protobuf::int64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      repsint64() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_repsint64();
+
+  // repeated fixed32 RepFixed32 = 12;
+  int repfixed32_size() const;
+  void clear_repfixed32();
+  static const int kRepFixed32FieldNumber = 12;
+  ::google::protobuf::uint32 repfixed32(int index) const;
+  void set_repfixed32(int index, ::google::protobuf::uint32 value);
+  void add_repfixed32(::google::protobuf::uint32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      repfixed32() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_repfixed32();
+
+  // repeated fixed64 RepFixed64 = 13;
+  int repfixed64_size() const;
+  void clear_repfixed64();
+  static const int kRepFixed64FieldNumber = 13;
+  ::google::protobuf::uint64 repfixed64(int index) const;
+  void set_repfixed64(int index, ::google::protobuf::uint64 value);
+  void add_repfixed64(::google::protobuf::uint64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      repfixed64() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_repfixed64();
+
+  // repeated sfixed32 RepSFixed32 = 14;
+  int repsfixed32_size() const;
+  void clear_repsfixed32();
+  static const int kRepSFixed32FieldNumber = 14;
+  ::google::protobuf::int32 repsfixed32(int index) const;
+  void set_repsfixed32(int index, ::google::protobuf::int32 value);
+  void add_repsfixed32(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      repsfixed32() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_repsfixed32();
+
+  // repeated sfixed64 RepSFixed64 = 15;
+  int repsfixed64_size() const;
+  void clear_repsfixed64();
+  static const int kRepSFixed64FieldNumber = 15;
+  ::google::protobuf::int64 repsfixed64(int index) const;
+  void set_repsfixed64(int index, ::google::protobuf::int64 value);
+  void add_repsfixed64(::google::protobuf::int64 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      repsfixed64() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_repsfixed64();
+
+  // repeated bool RepBool = 16;
+  int repbool_size() const;
+  void clear_repbool();
+  static const int kRepBoolFieldNumber = 16;
+  bool repbool(int index) const;
+  void set_repbool(int index, bool value);
+  void add_repbool(bool value);
+  const ::google::protobuf::RepeatedField< bool >&
+      repbool() const;
+  ::google::protobuf::RepeatedField< bool >*
+      mutable_repbool();
+
+  // repeated string RepString = 17;
+  int repstring_size() const;
+  void clear_repstring();
+  static const int kRepStringFieldNumber = 17;
+  const ::std::string& repstring(int index) const;
+  ::std::string* mutable_repstring(int index);
+  void set_repstring(int index, const ::std::string& value);
+  void set_repstring(int index, const char* value);
+  void set_repstring(int index, const char* value, size_t size);
+  ::std::string* add_repstring();
+  void add_repstring(const ::std::string& value);
+  void add_repstring(const char* value);
+  void add_repstring(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& repstring() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_repstring();
+
+  // repeated bytes RepBytes = 18;
+  int repbytes_size() const;
+  void clear_repbytes();
+  static const int kRepBytesFieldNumber = 18;
+  const ::std::string& repbytes(int index) const;
+  ::std::string* mutable_repbytes(int index);
+  void set_repbytes(int index, const ::std::string& value);
+  void set_repbytes(int index, const char* value);
+  void set_repbytes(int index, const void* value, size_t size);
+  ::std::string* add_repbytes();
+  void add_repbytes(const ::std::string& value);
+  void add_repbytes(const char* value);
+  void add_repbytes(const void* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& repbytes() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_repbytes();
+
+  // repeated .dto.EnumValue RepEnum = 19;
+  int repenum_size() const;
+  void clear_repenum();
+  static const int kRepEnumFieldNumber = 19;
+  ::dto::EnumValue repenum(int index) const;
+  void set_repenum(int index, ::dto::EnumValue value);
+  void add_repenum(::dto::EnumValue value);
+  const ::google::protobuf::RepeatedField<int>& repenum() const;
+  ::google::protobuf::RepeatedField<int>* mutable_repenum();
+
+  // optional .dto.NestedChild OptionalChild = 1;
+  bool has_optionalchild() const;
+  void clear_optionalchild();
   static const int kOptionalChildFieldNumber = 1;
-  const ::dto::NestedChild& optional_child() const;
-  ::dto::NestedChild* mutable_optional_child();
-  ::dto::NestedChild* release_optional_child();
-  void set_allocated_optional_child(::dto::NestedChild* optional_child);
+  const ::dto::NestedChild& optionalchild() const;
+  ::dto::NestedChild* mutable_optionalchild();
+  ::dto::NestedChild* release_optionalchild();
+  void set_allocated_optionalchild(::dto::NestedChild* optionalchild);
 
-  // required .dto.NestedChild required_child = 2;
-  bool has_required_child() const;
-  void clear_required_child();
+  // required .dto.NestedChild RequiredChild = 2;
+  bool has_requiredchild() const;
+  void clear_requiredchild();
   static const int kRequiredChildFieldNumber = 2;
-  const ::dto::NestedChild& required_child() const;
-  ::dto::NestedChild* mutable_required_child();
-  ::dto::NestedChild* release_required_child();
-  void set_allocated_required_child(::dto::NestedChild* required_child);
+  const ::dto::NestedChild& requiredchild() const;
+  ::dto::NestedChild* mutable_requiredchild();
+  ::dto::NestedChild* release_requiredchild();
+  void set_allocated_requiredchild(::dto::NestedChild* requiredchild);
 
   // @@protoc_insertion_point(class_scope:dto.NestedParent)
  private:
-  void set_has_optional_child();
-  void clear_has_optional_child();
-  void set_has_required_child();
-  void clear_has_required_child();
+  void set_has_optionalchild();
+  void clear_has_optionalchild();
+  void set_has_requiredchild();
+  void clear_has_requiredchild();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::dto::NestedChild > childs_;
-  ::dto::NestedChild* optional_child_;
-  ::dto::NestedChild* required_child_;
+  ::google::protobuf::RepeatedPtrField< ::dto::NestedChild > children_;
+  ::google::protobuf::RepeatedField< double > repdouble_;
+  ::google::protobuf::RepeatedField< float > repfloat_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > repint32_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > repint64_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > repuint32_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > repuint64_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > repsint32_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > repsint64_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > repfixed32_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > repfixed64_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > repsfixed32_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > repsfixed64_;
+  ::google::protobuf::RepeatedField< bool > repbool_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> repstring_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> repbytes_;
+  ::google::protobuf::RepeatedField<int> repenum_;
+  ::dto::NestedChild* optionalchild_;
+  ::dto::NestedChild* requiredchild_;
   friend struct  protobuf_dto_2eproto::TableStruct;
 };
 // ===================================================================
@@ -1094,124 +1308,656 @@ inline void NestedChild::set_y(float value) {
 
 // NestedParent
 
-// optional .dto.NestedChild optional_child = 1;
-inline bool NestedParent::has_optional_child() const {
+// optional .dto.NestedChild OptionalChild = 1;
+inline bool NestedParent::has_optionalchild() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NestedParent::set_has_optional_child() {
+inline void NestedParent::set_has_optionalchild() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NestedParent::clear_has_optional_child() {
+inline void NestedParent::clear_has_optionalchild() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NestedParent::clear_optional_child() {
-  if (optional_child_ != NULL) optional_child_->::dto::NestedChild::Clear();
-  clear_has_optional_child();
+inline void NestedParent::clear_optionalchild() {
+  if (optionalchild_ != NULL) optionalchild_->::dto::NestedChild::Clear();
+  clear_has_optionalchild();
 }
-inline const ::dto::NestedChild& NestedParent::optional_child() const {
-  // @@protoc_insertion_point(field_get:dto.NestedParent.optional_child)
-  return optional_child_ != NULL ? *optional_child_
+inline const ::dto::NestedChild& NestedParent::optionalchild() const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.OptionalChild)
+  return optionalchild_ != NULL ? *optionalchild_
                          : *::dto::NestedChild::internal_default_instance();
 }
-inline ::dto::NestedChild* NestedParent::mutable_optional_child() {
-  set_has_optional_child();
-  if (optional_child_ == NULL) {
-    optional_child_ = new ::dto::NestedChild;
+inline ::dto::NestedChild* NestedParent::mutable_optionalchild() {
+  set_has_optionalchild();
+  if (optionalchild_ == NULL) {
+    optionalchild_ = new ::dto::NestedChild;
   }
-  // @@protoc_insertion_point(field_mutable:dto.NestedParent.optional_child)
-  return optional_child_;
+  // @@protoc_insertion_point(field_mutable:dto.NestedParent.OptionalChild)
+  return optionalchild_;
 }
-inline ::dto::NestedChild* NestedParent::release_optional_child() {
-  // @@protoc_insertion_point(field_release:dto.NestedParent.optional_child)
-  clear_has_optional_child();
-  ::dto::NestedChild* temp = optional_child_;
-  optional_child_ = NULL;
+inline ::dto::NestedChild* NestedParent::release_optionalchild() {
+  // @@protoc_insertion_point(field_release:dto.NestedParent.OptionalChild)
+  clear_has_optionalchild();
+  ::dto::NestedChild* temp = optionalchild_;
+  optionalchild_ = NULL;
   return temp;
 }
-inline void NestedParent::set_allocated_optional_child(::dto::NestedChild* optional_child) {
-  delete optional_child_;
-  optional_child_ = optional_child;
-  if (optional_child) {
-    set_has_optional_child();
+inline void NestedParent::set_allocated_optionalchild(::dto::NestedChild* optionalchild) {
+  delete optionalchild_;
+  optionalchild_ = optionalchild;
+  if (optionalchild) {
+    set_has_optionalchild();
   } else {
-    clear_has_optional_child();
+    clear_has_optionalchild();
   }
-  // @@protoc_insertion_point(field_set_allocated:dto.NestedParent.optional_child)
+  // @@protoc_insertion_point(field_set_allocated:dto.NestedParent.OptionalChild)
 }
 
-// required .dto.NestedChild required_child = 2;
-inline bool NestedParent::has_required_child() const {
+// required .dto.NestedChild RequiredChild = 2;
+inline bool NestedParent::has_requiredchild() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void NestedParent::set_has_required_child() {
+inline void NestedParent::set_has_requiredchild() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void NestedParent::clear_has_required_child() {
+inline void NestedParent::clear_has_requiredchild() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void NestedParent::clear_required_child() {
-  if (required_child_ != NULL) required_child_->::dto::NestedChild::Clear();
-  clear_has_required_child();
+inline void NestedParent::clear_requiredchild() {
+  if (requiredchild_ != NULL) requiredchild_->::dto::NestedChild::Clear();
+  clear_has_requiredchild();
 }
-inline const ::dto::NestedChild& NestedParent::required_child() const {
-  // @@protoc_insertion_point(field_get:dto.NestedParent.required_child)
-  return required_child_ != NULL ? *required_child_
+inline const ::dto::NestedChild& NestedParent::requiredchild() const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RequiredChild)
+  return requiredchild_ != NULL ? *requiredchild_
                          : *::dto::NestedChild::internal_default_instance();
 }
-inline ::dto::NestedChild* NestedParent::mutable_required_child() {
-  set_has_required_child();
-  if (required_child_ == NULL) {
-    required_child_ = new ::dto::NestedChild;
+inline ::dto::NestedChild* NestedParent::mutable_requiredchild() {
+  set_has_requiredchild();
+  if (requiredchild_ == NULL) {
+    requiredchild_ = new ::dto::NestedChild;
   }
-  // @@protoc_insertion_point(field_mutable:dto.NestedParent.required_child)
-  return required_child_;
+  // @@protoc_insertion_point(field_mutable:dto.NestedParent.RequiredChild)
+  return requiredchild_;
 }
-inline ::dto::NestedChild* NestedParent::release_required_child() {
-  // @@protoc_insertion_point(field_release:dto.NestedParent.required_child)
-  clear_has_required_child();
-  ::dto::NestedChild* temp = required_child_;
-  required_child_ = NULL;
+inline ::dto::NestedChild* NestedParent::release_requiredchild() {
+  // @@protoc_insertion_point(field_release:dto.NestedParent.RequiredChild)
+  clear_has_requiredchild();
+  ::dto::NestedChild* temp = requiredchild_;
+  requiredchild_ = NULL;
   return temp;
 }
-inline void NestedParent::set_allocated_required_child(::dto::NestedChild* required_child) {
-  delete required_child_;
-  required_child_ = required_child;
-  if (required_child) {
-    set_has_required_child();
+inline void NestedParent::set_allocated_requiredchild(::dto::NestedChild* requiredchild) {
+  delete requiredchild_;
+  requiredchild_ = requiredchild;
+  if (requiredchild) {
+    set_has_requiredchild();
   } else {
-    clear_has_required_child();
+    clear_has_requiredchild();
   }
-  // @@protoc_insertion_point(field_set_allocated:dto.NestedParent.required_child)
+  // @@protoc_insertion_point(field_set_allocated:dto.NestedParent.RequiredChild)
 }
 
-// repeated .dto.NestedChild childs = 3;
-inline int NestedParent::childs_size() const {
-  return childs_.size();
+// repeated .dto.NestedChild Children = 3;
+inline int NestedParent::children_size() const {
+  return children_.size();
 }
-inline void NestedParent::clear_childs() {
-  childs_.Clear();
+inline void NestedParent::clear_children() {
+  children_.Clear();
 }
-inline const ::dto::NestedChild& NestedParent::childs(int index) const {
-  // @@protoc_insertion_point(field_get:dto.NestedParent.childs)
-  return childs_.Get(index);
+inline const ::dto::NestedChild& NestedParent::children(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.Children)
+  return children_.Get(index);
 }
-inline ::dto::NestedChild* NestedParent::mutable_childs(int index) {
-  // @@protoc_insertion_point(field_mutable:dto.NestedParent.childs)
-  return childs_.Mutable(index);
+inline ::dto::NestedChild* NestedParent::mutable_children(int index) {
+  // @@protoc_insertion_point(field_mutable:dto.NestedParent.Children)
+  return children_.Mutable(index);
 }
-inline ::dto::NestedChild* NestedParent::add_childs() {
-  // @@protoc_insertion_point(field_add:dto.NestedParent.childs)
-  return childs_.Add();
+inline ::dto::NestedChild* NestedParent::add_children() {
+  // @@protoc_insertion_point(field_add:dto.NestedParent.Children)
+  return children_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::dto::NestedChild >*
-NestedParent::mutable_childs() {
-  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.childs)
-  return &childs_;
+NestedParent::mutable_children() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.Children)
+  return &children_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::dto::NestedChild >&
-NestedParent::childs() const {
-  // @@protoc_insertion_point(field_list:dto.NestedParent.childs)
-  return childs_;
+NestedParent::children() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.Children)
+  return children_;
+}
+
+// repeated double RepDouble = 4;
+inline int NestedParent::repdouble_size() const {
+  return repdouble_.size();
+}
+inline void NestedParent::clear_repdouble() {
+  repdouble_.Clear();
+}
+inline double NestedParent::repdouble(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepDouble)
+  return repdouble_.Get(index);
+}
+inline void NestedParent::set_repdouble(int index, double value) {
+  repdouble_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepDouble)
+}
+inline void NestedParent::add_repdouble(double value) {
+  repdouble_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepDouble)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+NestedParent::repdouble() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepDouble)
+  return repdouble_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+NestedParent::mutable_repdouble() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepDouble)
+  return &repdouble_;
+}
+
+// repeated float RepFloat = 5;
+inline int NestedParent::repfloat_size() const {
+  return repfloat_.size();
+}
+inline void NestedParent::clear_repfloat() {
+  repfloat_.Clear();
+}
+inline float NestedParent::repfloat(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepFloat)
+  return repfloat_.Get(index);
+}
+inline void NestedParent::set_repfloat(int index, float value) {
+  repfloat_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepFloat)
+}
+inline void NestedParent::add_repfloat(float value) {
+  repfloat_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepFloat)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+NestedParent::repfloat() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepFloat)
+  return repfloat_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+NestedParent::mutable_repfloat() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepFloat)
+  return &repfloat_;
+}
+
+// repeated int32 RepInt32 = 6;
+inline int NestedParent::repint32_size() const {
+  return repint32_.size();
+}
+inline void NestedParent::clear_repint32() {
+  repint32_.Clear();
+}
+inline ::google::protobuf::int32 NestedParent::repint32(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepInt32)
+  return repint32_.Get(index);
+}
+inline void NestedParent::set_repint32(int index, ::google::protobuf::int32 value) {
+  repint32_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepInt32)
+}
+inline void NestedParent::add_repint32(::google::protobuf::int32 value) {
+  repint32_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepInt32)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+NestedParent::repint32() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepInt32)
+  return repint32_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+NestedParent::mutable_repint32() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepInt32)
+  return &repint32_;
+}
+
+// repeated int64 RepInt64 = 7;
+inline int NestedParent::repint64_size() const {
+  return repint64_.size();
+}
+inline void NestedParent::clear_repint64() {
+  repint64_.Clear();
+}
+inline ::google::protobuf::int64 NestedParent::repint64(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepInt64)
+  return repint64_.Get(index);
+}
+inline void NestedParent::set_repint64(int index, ::google::protobuf::int64 value) {
+  repint64_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepInt64)
+}
+inline void NestedParent::add_repint64(::google::protobuf::int64 value) {
+  repint64_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepInt64)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+NestedParent::repint64() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepInt64)
+  return repint64_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+NestedParent::mutable_repint64() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepInt64)
+  return &repint64_;
+}
+
+// repeated uint32 RepUInt32 = 8;
+inline int NestedParent::repuint32_size() const {
+  return repuint32_.size();
+}
+inline void NestedParent::clear_repuint32() {
+  repuint32_.Clear();
+}
+inline ::google::protobuf::uint32 NestedParent::repuint32(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepUInt32)
+  return repuint32_.Get(index);
+}
+inline void NestedParent::set_repuint32(int index, ::google::protobuf::uint32 value) {
+  repuint32_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepUInt32)
+}
+inline void NestedParent::add_repuint32(::google::protobuf::uint32 value) {
+  repuint32_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepUInt32)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NestedParent::repuint32() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepUInt32)
+  return repuint32_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NestedParent::mutable_repuint32() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepUInt32)
+  return &repuint32_;
+}
+
+// repeated uint64 RepUInt64 = 9;
+inline int NestedParent::repuint64_size() const {
+  return repuint64_.size();
+}
+inline void NestedParent::clear_repuint64() {
+  repuint64_.Clear();
+}
+inline ::google::protobuf::uint64 NestedParent::repuint64(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepUInt64)
+  return repuint64_.Get(index);
+}
+inline void NestedParent::set_repuint64(int index, ::google::protobuf::uint64 value) {
+  repuint64_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepUInt64)
+}
+inline void NestedParent::add_repuint64(::google::protobuf::uint64 value) {
+  repuint64_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepUInt64)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+NestedParent::repuint64() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepUInt64)
+  return repuint64_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+NestedParent::mutable_repuint64() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepUInt64)
+  return &repuint64_;
+}
+
+// repeated sint32 RepSInt32 = 10;
+inline int NestedParent::repsint32_size() const {
+  return repsint32_.size();
+}
+inline void NestedParent::clear_repsint32() {
+  repsint32_.Clear();
+}
+inline ::google::protobuf::int32 NestedParent::repsint32(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepSInt32)
+  return repsint32_.Get(index);
+}
+inline void NestedParent::set_repsint32(int index, ::google::protobuf::int32 value) {
+  repsint32_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepSInt32)
+}
+inline void NestedParent::add_repsint32(::google::protobuf::int32 value) {
+  repsint32_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepSInt32)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+NestedParent::repsint32() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepSInt32)
+  return repsint32_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+NestedParent::mutable_repsint32() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepSInt32)
+  return &repsint32_;
+}
+
+// repeated sint64 RepSInt64 = 11;
+inline int NestedParent::repsint64_size() const {
+  return repsint64_.size();
+}
+inline void NestedParent::clear_repsint64() {
+  repsint64_.Clear();
+}
+inline ::google::protobuf::int64 NestedParent::repsint64(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepSInt64)
+  return repsint64_.Get(index);
+}
+inline void NestedParent::set_repsint64(int index, ::google::protobuf::int64 value) {
+  repsint64_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepSInt64)
+}
+inline void NestedParent::add_repsint64(::google::protobuf::int64 value) {
+  repsint64_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepSInt64)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+NestedParent::repsint64() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepSInt64)
+  return repsint64_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+NestedParent::mutable_repsint64() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepSInt64)
+  return &repsint64_;
+}
+
+// repeated fixed32 RepFixed32 = 12;
+inline int NestedParent::repfixed32_size() const {
+  return repfixed32_.size();
+}
+inline void NestedParent::clear_repfixed32() {
+  repfixed32_.Clear();
+}
+inline ::google::protobuf::uint32 NestedParent::repfixed32(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepFixed32)
+  return repfixed32_.Get(index);
+}
+inline void NestedParent::set_repfixed32(int index, ::google::protobuf::uint32 value) {
+  repfixed32_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepFixed32)
+}
+inline void NestedParent::add_repfixed32(::google::protobuf::uint32 value) {
+  repfixed32_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepFixed32)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+NestedParent::repfixed32() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepFixed32)
+  return repfixed32_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+NestedParent::mutable_repfixed32() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepFixed32)
+  return &repfixed32_;
+}
+
+// repeated fixed64 RepFixed64 = 13;
+inline int NestedParent::repfixed64_size() const {
+  return repfixed64_.size();
+}
+inline void NestedParent::clear_repfixed64() {
+  repfixed64_.Clear();
+}
+inline ::google::protobuf::uint64 NestedParent::repfixed64(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepFixed64)
+  return repfixed64_.Get(index);
+}
+inline void NestedParent::set_repfixed64(int index, ::google::protobuf::uint64 value) {
+  repfixed64_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepFixed64)
+}
+inline void NestedParent::add_repfixed64(::google::protobuf::uint64 value) {
+  repfixed64_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepFixed64)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+NestedParent::repfixed64() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepFixed64)
+  return repfixed64_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+NestedParent::mutable_repfixed64() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepFixed64)
+  return &repfixed64_;
+}
+
+// repeated sfixed32 RepSFixed32 = 14;
+inline int NestedParent::repsfixed32_size() const {
+  return repsfixed32_.size();
+}
+inline void NestedParent::clear_repsfixed32() {
+  repsfixed32_.Clear();
+}
+inline ::google::protobuf::int32 NestedParent::repsfixed32(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepSFixed32)
+  return repsfixed32_.Get(index);
+}
+inline void NestedParent::set_repsfixed32(int index, ::google::protobuf::int32 value) {
+  repsfixed32_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepSFixed32)
+}
+inline void NestedParent::add_repsfixed32(::google::protobuf::int32 value) {
+  repsfixed32_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepSFixed32)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+NestedParent::repsfixed32() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepSFixed32)
+  return repsfixed32_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+NestedParent::mutable_repsfixed32() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepSFixed32)
+  return &repsfixed32_;
+}
+
+// repeated sfixed64 RepSFixed64 = 15;
+inline int NestedParent::repsfixed64_size() const {
+  return repsfixed64_.size();
+}
+inline void NestedParent::clear_repsfixed64() {
+  repsfixed64_.Clear();
+}
+inline ::google::protobuf::int64 NestedParent::repsfixed64(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepSFixed64)
+  return repsfixed64_.Get(index);
+}
+inline void NestedParent::set_repsfixed64(int index, ::google::protobuf::int64 value) {
+  repsfixed64_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepSFixed64)
+}
+inline void NestedParent::add_repsfixed64(::google::protobuf::int64 value) {
+  repsfixed64_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepSFixed64)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+NestedParent::repsfixed64() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepSFixed64)
+  return repsfixed64_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+NestedParent::mutable_repsfixed64() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepSFixed64)
+  return &repsfixed64_;
+}
+
+// repeated bool RepBool = 16;
+inline int NestedParent::repbool_size() const {
+  return repbool_.size();
+}
+inline void NestedParent::clear_repbool() {
+  repbool_.Clear();
+}
+inline bool NestedParent::repbool(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepBool)
+  return repbool_.Get(index);
+}
+inline void NestedParent::set_repbool(int index, bool value) {
+  repbool_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepBool)
+}
+inline void NestedParent::add_repbool(bool value) {
+  repbool_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepBool)
+}
+inline const ::google::protobuf::RepeatedField< bool >&
+NestedParent::repbool() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepBool)
+  return repbool_;
+}
+inline ::google::protobuf::RepeatedField< bool >*
+NestedParent::mutable_repbool() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepBool)
+  return &repbool_;
+}
+
+// repeated string RepString = 17;
+inline int NestedParent::repstring_size() const {
+  return repstring_.size();
+}
+inline void NestedParent::clear_repstring() {
+  repstring_.Clear();
+}
+inline const ::std::string& NestedParent::repstring(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepString)
+  return repstring_.Get(index);
+}
+inline ::std::string* NestedParent::mutable_repstring(int index) {
+  // @@protoc_insertion_point(field_mutable:dto.NestedParent.RepString)
+  return repstring_.Mutable(index);
+}
+inline void NestedParent::set_repstring(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepString)
+  repstring_.Mutable(index)->assign(value);
+}
+inline void NestedParent::set_repstring(int index, const char* value) {
+  repstring_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:dto.NestedParent.RepString)
+}
+inline void NestedParent::set_repstring(int index, const char* value, size_t size) {
+  repstring_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:dto.NestedParent.RepString)
+}
+inline ::std::string* NestedParent::add_repstring() {
+  // @@protoc_insertion_point(field_add_mutable:dto.NestedParent.RepString)
+  return repstring_.Add();
+}
+inline void NestedParent::add_repstring(const ::std::string& value) {
+  repstring_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepString)
+}
+inline void NestedParent::add_repstring(const char* value) {
+  repstring_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:dto.NestedParent.RepString)
+}
+inline void NestedParent::add_repstring(const char* value, size_t size) {
+  repstring_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:dto.NestedParent.RepString)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+NestedParent::repstring() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepString)
+  return repstring_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+NestedParent::mutable_repstring() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepString)
+  return &repstring_;
+}
+
+// repeated bytes RepBytes = 18;
+inline int NestedParent::repbytes_size() const {
+  return repbytes_.size();
+}
+inline void NestedParent::clear_repbytes() {
+  repbytes_.Clear();
+}
+inline const ::std::string& NestedParent::repbytes(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepBytes)
+  return repbytes_.Get(index);
+}
+inline ::std::string* NestedParent::mutable_repbytes(int index) {
+  // @@protoc_insertion_point(field_mutable:dto.NestedParent.RepBytes)
+  return repbytes_.Mutable(index);
+}
+inline void NestedParent::set_repbytes(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepBytes)
+  repbytes_.Mutable(index)->assign(value);
+}
+inline void NestedParent::set_repbytes(int index, const char* value) {
+  repbytes_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:dto.NestedParent.RepBytes)
+}
+inline void NestedParent::set_repbytes(int index, const void* value, size_t size) {
+  repbytes_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:dto.NestedParent.RepBytes)
+}
+inline ::std::string* NestedParent::add_repbytes() {
+  // @@protoc_insertion_point(field_add_mutable:dto.NestedParent.RepBytes)
+  return repbytes_.Add();
+}
+inline void NestedParent::add_repbytes(const ::std::string& value) {
+  repbytes_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepBytes)
+}
+inline void NestedParent::add_repbytes(const char* value) {
+  repbytes_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:dto.NestedParent.RepBytes)
+}
+inline void NestedParent::add_repbytes(const void* value, size_t size) {
+  repbytes_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:dto.NestedParent.RepBytes)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+NestedParent::repbytes() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepBytes)
+  return repbytes_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+NestedParent::mutable_repbytes() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepBytes)
+  return &repbytes_;
+}
+
+// repeated .dto.EnumValue RepEnum = 19;
+inline int NestedParent::repenum_size() const {
+  return repenum_.size();
+}
+inline void NestedParent::clear_repenum() {
+  repenum_.Clear();
+}
+inline ::dto::EnumValue NestedParent::repenum(int index) const {
+  // @@protoc_insertion_point(field_get:dto.NestedParent.RepEnum)
+  return static_cast< ::dto::EnumValue >(repenum_.Get(index));
+}
+inline void NestedParent::set_repenum(int index, ::dto::EnumValue value) {
+  assert(::dto::EnumValue_IsValid(value));
+  repenum_.Set(index, value);
+  // @@protoc_insertion_point(field_set:dto.NestedParent.RepEnum)
+}
+inline void NestedParent::add_repenum(::dto::EnumValue value) {
+  assert(::dto::EnumValue_IsValid(value));
+  repenum_.Add(value);
+  // @@protoc_insertion_point(field_add:dto.NestedParent.RepEnum)
+}
+inline const ::google::protobuf::RepeatedField<int>&
+NestedParent::repenum() const {
+  // @@protoc_insertion_point(field_list:dto.NestedParent.RepEnum)
+  return repenum_;
+}
+inline ::google::protobuf::RepeatedField<int>*
+NestedParent::mutable_repenum() {
+  // @@protoc_insertion_point(field_mutable_list:dto.NestedParent.RepEnum)
+  return &repenum_;
 }
 
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS

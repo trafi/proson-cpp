@@ -5,7 +5,7 @@
 
 using namespace proson;
 
-TEST_CASE("proson_value_parse")
+TEST_CASE("proson_value_parse_test")
 {
     dto::Values values;
 
