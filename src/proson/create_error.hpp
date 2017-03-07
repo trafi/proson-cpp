@@ -10,11 +10,10 @@
 
 #pragma once
 
-#include <error.hpp>
+#include <proson/error.hpp>
+#include <proson/field_ref.hpp>
 #include <google/protobuf/message.h>
 #include <string>
-
-#include "field_ref.hpp"
 
 namespace proson {
     namespace internal {

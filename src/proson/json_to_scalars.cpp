@@ -10,7 +10,7 @@
 
 #include "json_to_scalars.hpp"
 
-#include "create_error.hpp"
+#include <proson/create_error.hpp>
 
 using namespace std;
 using namespace nlohmann;

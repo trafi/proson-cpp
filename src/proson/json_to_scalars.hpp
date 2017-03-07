@@ -10,10 +10,10 @@
 
 #pragma once
 
-#include <error.hpp>
-#include <json.hpp>
+#include <proson/error.hpp>
+#include <proson/field_ref.hpp>
 
-#include "field_ref.hpp"
+#include <json.hpp>
 
 namespace proson {
     namespace internal {

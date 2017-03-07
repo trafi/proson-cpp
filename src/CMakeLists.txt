@@ -3,15 +3,15 @@ set(TARGET "proson")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 add_library(${TARGET} STATIC
-        create_error.cpp
-        create_error.hpp
-        error.hpp
-        field_ref.cpp
-        field_ref.hpp
-        json_to_scalars.cpp
-        json_to_scalars.hpp
-        proson.cpp
-        proson.hpp
+        proson/create_error.cpp
+        proson/create_error.hpp
+        proson/error.hpp
+        proson/field_ref.cpp
+        proson/field_ref.hpp
+        proson/json_to_scalars.cpp
+        proson/json_to_scalars.hpp
+        proson/proson.cpp
+        proson/proson.hpp
         )
 
 target_link_libraries(${TARGET}
@@ -19,7 +19,7 @@ target_link_libraries(${TARGET}
         )
 
 target_include_directories(${TARGET}
-        PUBLIC src
+        PUBLIC .
         )
 
 set_target_properties(${TARGET} PROPERTIES

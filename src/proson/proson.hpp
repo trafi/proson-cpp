@@ -10,7 +10,7 @@
 
 #pragma once
 
-#include <error.hpp>
+#include <proson/error.hpp>
 #include <google/protobuf/message.h>
 
 namespace proson {

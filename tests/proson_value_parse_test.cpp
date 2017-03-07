@@ -1,7 +1,7 @@
 #include "catch.hpp"
 
 #include "dto.pb.h"
-#include <proson.hpp>
+#include <proson/proson.hpp>
 
 using namespace proson;
 

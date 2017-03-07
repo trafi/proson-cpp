@@ -35,7 +35,7 @@ message Servo {
 This library can build `Servo` value from JSON string:
 
 ```cpp
-#include <proson.hpp>
+#include <proson/proson.hpp>
 #include "example_dto.pb.h"
 
 TEST_CASE("example_test") // uses #include "catch.hpp" for testing

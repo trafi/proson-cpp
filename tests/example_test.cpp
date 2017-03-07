@@ -1,6 +1,6 @@
 #include "catch.hpp"
 
-#include <proson.hpp>
+#include <proson/proson.hpp>
 #include "example_dto.pb.h"
 
 using namespace proson;

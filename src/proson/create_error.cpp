@@ -8,7 +8,7 @@
  *
  */
 
-#include "create_error.hpp"
+#include <proson/create_error.hpp>
 
 #include <sstream>
 
