@@ -1,4 +1,4 @@
-## Proson
+# Proson
 
 Merge JSON data into any Protobuf object at runtime. Requires C++14 (see requirements section bellow).
 
