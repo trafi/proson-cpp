@@ -12,7 +12,7 @@ TEST_CASE("example_test")
     {
         Servo servo;
 
-        auto merge_ok = proson::merge(&servo, R"json(
+        auto merge_ok = proson::merge(servo, R"json(
             {
                 "targets": [
                     {
@@ -59,7 +59,7 @@ TEST_CASE("example_test")
         Servo servo;
         servo.set_air(Air::Cold); // set existing value
 
-        auto merge_ok = proson::merge(&servo, R"json(
+        auto merge_ok = proson::merge(servo, R"json(
             {
                 "targets": [
                     {
@@ -88,7 +88,7 @@ TEST_CASE("example_test")
     {
         Servo servo;
 
-        auto merge_ok = proson::merge(&servo, R"json(
+        auto merge_ok = proson::merge(servo, R"json(
             {
                 "targets": [
                     {

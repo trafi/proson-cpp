@@ -11,7 +11,7 @@ TEST_CASE("proson_value_parse_test")
 
     SECTION("check default values")
     {
-        auto res = proson::merge(&values, "{}");
+        auto res = proson::merge(values, "{}");
 
         REQUIRE(res);
         REQUIRE(values.valdouble() == 0.0);
@@ -36,7 +36,7 @@ TEST_CASE("proson_value_parse_test")
     {
         SECTION("from float")
         {
-            auto res = proson::merge(&values, "{ \"ValDouble\": 22.3, \"ValFloat\": 22.3 }");
+            auto res = proson::merge(values, "{ \"ValDouble\": 22.3, \"ValFloat\": 22.3 }");
             REQUIRE(res);
             REQUIRE(values.valdouble() == 22.3);
             REQUIRE(values.valfloat() == 22.3f);
@@ -44,7 +44,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from int")
         {
-            auto res = proson::merge(&values, "{ \"ValDouble\": 22, \"ValFloat\": 22 }");
+            auto res = proson::merge(values, "{ \"ValDouble\": 22, \"ValFloat\": 22 }");
             REQUIRE(res);
             REQUIRE(values.valdouble() == 22.0);
             REQUIRE(values.valfloat() == 22.0f);
@@ -52,12 +52,12 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from bool")
         {
-            auto res_d = proson::merge(&values, "{ \"ValDouble\": false }");
+            auto res_d = proson::merge(values, "{ \"ValDouble\": false }");
             REQUIRE(!res_d);
             REQUIRE(res_d.err_value().message
                     == "expected type double, but found value false at ValDouble");
 
-            auto res_f = proson::merge(&values, "{ \"ValFloat\": false }");
+            auto res_f = proson::merge(values, "{ \"ValFloat\": false }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
                     == "expected type double, but found value false at ValFloat");
@@ -65,12 +65,12 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from string")
         {
-            auto res_d = proson::merge(&values, "{ \"ValDouble\": \"22\" }");
+            auto res_d = proson::merge(values, "{ \"ValDouble\": \"22\" }");
             REQUIRE(!res_d);
             REQUIRE(res_d.err_value().message
                     == "expected type double, but found value \"22\" at ValDouble");
 
-            auto res_f = proson::merge(&values, "{ \"ValFloat\": \"22\" }");
+            auto res_f = proson::merge(values, "{ \"ValFloat\": \"22\" }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
                     == "expected type double, but found value \"22\" at ValFloat");
@@ -78,12 +78,12 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from array")
         {
-            auto res_d = proson::merge(&values, "{ \"ValDouble\": [] }");
+            auto res_d = proson::merge(values, "{ \"ValDouble\": [] }");
             REQUIRE(!res_d);
             REQUIRE(res_d.err_value().message
                     == "expected type double, but found value [] at ValDouble");
 
-            auto res_f = proson::merge(&values, "{ \"ValFloat\": [] }");
+            auto res_f = proson::merge(values, "{ \"ValFloat\": [] }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
                     == "expected type double, but found value [] at ValFloat");
@@ -91,12 +91,12 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from object")
         {
-            auto res_d = proson::merge(&values, "{ \"ValDouble\": {} }");
+            auto res_d = proson::merge(values, "{ \"ValDouble\": {} }");
             REQUIRE(!res_d);
             REQUIRE(res_d.err_value().message
                     == "expected type double, but found value {} at ValDouble");
 
-            auto res_f = proson::merge(&values, "{ \"ValFloat\": {} }");
+            auto res_f = proson::merge(values, "{ \"ValFloat\": {} }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
                     == "expected type double, but found value {} at ValFloat");
@@ -104,12 +104,12 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from null")
         {
-            auto res_d = proson::merge(&values, "{ \"ValDouble\": null }");
+            auto res_d = proson::merge(values, "{ \"ValDouble\": null }");
             REQUIRE(!res_d);
             REQUIRE(res_d.err_value().message
                     == "expected type double, but found value null at ValDouble");
 
-            auto res_f = proson::merge(&values, "{ \"ValFloat\": null }");
+            auto res_f = proson::merge(values, "{ \"ValFloat\": null }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
                     == "expected type double, but found value null at ValFloat");
@@ -122,21 +122,21 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int32")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": 22 }");
+                auto res = proson::merge(values, "{ \"ValInt32\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valint32() == 22);
             }
 
             SECTION("from int32 negative")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": -22 }");
+                auto res = proson::merge(values, "{ \"ValInt32\": -22 }");
                 REQUIRE(res);
                 REQUIRE(values.valint32() == -22);
             }
 
             SECTION("from uint32")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": 4000000000 }");
+                auto res = proson::merge(values, "{ \"ValInt32\": 4000000000 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value 4000000000 at ValInt32");
@@ -144,7 +144,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from int64")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": 700000000000 }");
+                auto res = proson::merge(values, "{ \"ValInt32\": 700000000000 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value 700000000000 at ValInt32");
@@ -152,7 +152,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from uint64")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": 10000000000000000000 }");
+                auto res = proson::merge(values, "{ \"ValInt32\": 10000000000000000000 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value 10000000000000000000 at ValInt32");
@@ -160,7 +160,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from float")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": 3.14 }");
+                auto res = proson::merge(values, "{ \"ValInt32\": 3.14 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value 3.14 at ValInt32");
@@ -168,7 +168,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from bool")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": false }");
+                auto res = proson::merge(values, "{ \"ValInt32\": false }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value false at ValInt32");
@@ -176,7 +176,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from string")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": \"false\" }");
+                auto res = proson::merge(values, "{ \"ValInt32\": \"false\" }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value \"false\" at ValInt32");
@@ -184,7 +184,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from array")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": [] }");
+                auto res = proson::merge(values, "{ \"ValInt32\": [] }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value [] at ValInt32");
@@ -192,7 +192,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from object")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": {} }");
+                auto res = proson::merge(values, "{ \"ValInt32\": {} }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value {} at ValInt32");
@@ -200,7 +200,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from null")
             {
-                auto res = proson::merge(&values, "{ \"ValInt32\": null }");
+                auto res = proson::merge(values, "{ \"ValInt32\": null }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int32, but found value null at ValInt32");
@@ -211,7 +211,7 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int32")
             {
-                auto res = proson::merge(&values, "{ \"ValSInt32\": 22 }");
+                auto res = proson::merge(values, "{ \"ValSInt32\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valsint32() == 22);
             }
@@ -221,7 +221,7 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int32")
             {
-                auto res = proson::merge(&values, "{ \"ValSFixed32\": 22 }");
+                auto res = proson::merge(values, "{ \"ValSFixed32\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valsfixed32() == 22);
             }
@@ -234,14 +234,14 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from uint32")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": 22 }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valuint32() == 22);
             }
 
             SECTION("from int32 negative")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": -22 }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": -22 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value -22 at ValUInt32");
@@ -249,7 +249,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from int64")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": 700000000000 }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": 700000000000 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value 700000000000 at ValUInt32");
@@ -257,7 +257,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from uint64")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": 10000000000000000000 }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": 10000000000000000000 }");
                 REQUIRE(!res);
                 REQUIRE(
                     res.err_value().message
@@ -266,7 +266,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from float")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": 3.14 }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": 3.14 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value 3.14 at ValUInt32");
@@ -274,7 +274,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from bool")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": false }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": false }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value false at ValUInt32");
@@ -282,7 +282,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from string")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": \"false\" }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": \"false\" }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value \"false\" at ValUInt32");
@@ -290,7 +290,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from array")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": [] }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": [] }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value [] at ValUInt32");
@@ -298,7 +298,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from object")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": {} }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": {} }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value {} at ValUInt32");
@@ -306,7 +306,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from null")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt32\": null }");
+                auto res = proson::merge(values, "{ \"ValUInt32\": null }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint32, but found value null at ValUInt32");
@@ -317,7 +317,7 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int32")
             {
-                auto res = proson::merge(&values, "{ \"ValFixed32\": 22 }");
+                auto res = proson::merge(values, "{ \"ValFixed32\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valfixed32() == 22);
             }
@@ -330,21 +330,21 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int64")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": 5140000000 }");
+                auto res = proson::merge(values, "{ \"ValInt64\": 5140000000 }");
                 REQUIRE(res);
                 REQUIRE(values.valint64() == 5140000000);
             }
 
             SECTION("from int64 negative")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": -5140000000 }");
+                auto res = proson::merge(values, "{ \"ValInt64\": -5140000000 }");
                 REQUIRE(res);
                 REQUIRE(values.valint64() == -5140000000);
             }
 
             SECTION("from uint64")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": 18446744073709551600 }");
+                auto res = proson::merge(values, "{ \"ValInt64\": 18446744073709551600 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value 18446744073709551600 at ValInt64");
@@ -352,7 +352,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from float")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": 3.14 }");
+                auto res = proson::merge(values, "{ \"ValInt64\": 3.14 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value 3.14 at ValInt64");
@@ -360,7 +360,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from bool")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": false }");
+                auto res = proson::merge(values, "{ \"ValInt64\": false }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value false at ValInt64");
@@ -368,7 +368,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from string")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": \"false\" }");
+                auto res = proson::merge(values, "{ \"ValInt64\": \"false\" }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value \"false\" at ValInt64");
@@ -376,7 +376,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from array")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": [] }");
+                auto res = proson::merge(values, "{ \"ValInt64\": [] }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value [] at ValInt64");
@@ -384,7 +384,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from object")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": {} }");
+                auto res = proson::merge(values, "{ \"ValInt64\": {} }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value {} at ValInt64");
@@ -392,7 +392,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from null")
             {
-                auto res = proson::merge(&values, "{ \"ValInt64\": null }");
+                auto res = proson::merge(values, "{ \"ValInt64\": null }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type int64, but found value null at ValInt64");
@@ -403,7 +403,7 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int64")
             {
-                auto res = proson::merge(&values, "{ \"ValSInt64\": 22 }");
+                auto res = proson::merge(values, "{ \"ValSInt64\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valsint64() == 22);
             }
@@ -413,7 +413,7 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int64")
             {
-                auto res = proson::merge(&values, "{ \"ValSFixed64\": 22 }");
+                auto res = proson::merge(values, "{ \"ValSFixed64\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valsfixed64() == 22);
             }
@@ -426,14 +426,14 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from uint64")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": 22 }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valuint64() == 22);
             }
 
             SECTION("from int32 negative")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": -22 }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": -22 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value -22 at ValUInt64");
@@ -441,7 +441,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from int64 negative")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": -700000000000 }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": -700000000000 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value -700000000000 at ValUInt64");
@@ -449,7 +449,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from float")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": 3.14 }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": 3.14 }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value 3.14 at ValUInt64");
@@ -457,7 +457,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from bool")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": false }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": false }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value false at ValUInt64");
@@ -465,7 +465,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from string")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": \"false\" }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": \"false\" }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value \"false\" at ValUInt64");
@@ -473,7 +473,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from array")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": [] }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": [] }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value [] at ValUInt64");
@@ -481,7 +481,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from object")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": {} }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": {} }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value {} at ValUInt64");
@@ -489,7 +489,7 @@ TEST_CASE("proson_value_parse_test")
 
             SECTION("from null")
             {
-                auto res = proson::merge(&values, "{ \"ValUInt64\": null }");
+                auto res = proson::merge(values, "{ \"ValUInt64\": null }");
                 REQUIRE(!res);
                 REQUIRE(res.err_value().message
                         == "expected type uint64, but found value null at ValUInt64");
@@ -500,7 +500,7 @@ TEST_CASE("proson_value_parse_test")
         {
             SECTION("from int32")
             {
-                auto res = proson::merge(&values, "{ \"ValFixed64\": 22 }");
+                auto res = proson::merge(values, "{ \"ValFixed64\": 22 }");
                 REQUIRE(res);
                 REQUIRE(values.valfixed64() == 22);
             }
@@ -511,21 +511,21 @@ TEST_CASE("proson_value_parse_test")
     {
         SECTION("from bool")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": true }");
+            auto res = proson::merge(values, "{ \"ValBool\": true }");
             REQUIRE(res);
             REQUIRE(values.valbool());
         }
 
         SECTION("from int")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": 22 }");
+            auto res = proson::merge(values, "{ \"ValBool\": 22 }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message == "expected type bool, but found value 22 at ValBool");
         }
 
         SECTION("from float")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": 22.0 }");
+            auto res = proson::merge(values, "{ \"ValBool\": 22.0 }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type bool, but found value 22.0 at ValBool");
@@ -533,7 +533,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from string")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": \"22\" }");
+            auto res = proson::merge(values, "{ \"ValBool\": \"22\" }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type bool, but found value \"22\" at ValBool");
@@ -541,21 +541,21 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from array")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": [] }");
+            auto res = proson::merge(values, "{ \"ValBool\": [] }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message == "expected type bool, but found value [] at ValBool");
         }
 
         SECTION("from object")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": {} }");
+            auto res = proson::merge(values, "{ \"ValBool\": {} }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message == "expected type bool, but found value {} at ValBool");
         }
 
         SECTION("from null")
         {
-            auto res = proson::merge(&values, "{ \"ValBool\": null }");
+            auto res = proson::merge(values, "{ \"ValBool\": null }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type bool, but found value null at ValBool");
@@ -566,14 +566,14 @@ TEST_CASE("proson_value_parse_test")
     {
         SECTION("from string")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": \"Hello World\" }");
+            auto res = proson::merge(values, "{ \"ValString\": \"Hello World\" }");
             REQUIRE(res);
             REQUIRE(values.valstring() == "Hello World");
         }
 
         SECTION("from bool")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": true }");
+            auto res = proson::merge(values, "{ \"ValString\": true }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type string, but found value true at ValString");
@@ -581,7 +581,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from int")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": 22 }");
+            auto res = proson::merge(values, "{ \"ValString\": 22 }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type string, but found value 22 at ValString");
@@ -589,7 +589,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from float")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": 22.0 }");
+            auto res = proson::merge(values, "{ \"ValString\": 22.0 }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type string, but found value 22.0 at ValString");
@@ -597,7 +597,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from array")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": [] }");
+            auto res = proson::merge(values, "{ \"ValString\": [] }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type string, but found value [] at ValString");
@@ -605,7 +605,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from object")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": {} }");
+            auto res = proson::merge(values, "{ \"ValString\": {} }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type string, but found value {} at ValString");
@@ -613,7 +613,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from null")
         {
-            auto res = proson::merge(&values, "{ \"ValString\": null }");
+            auto res = proson::merge(values, "{ \"ValString\": null }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type string, but found value null at ValString");
@@ -624,7 +624,7 @@ TEST_CASE("proson_value_parse_test")
     {
         SECTION("from bytes")
         {
-            auto res = proson::merge(&values, "{ \"ValBytes\": \"\" }");
+            auto res = proson::merge(values, "{ \"ValBytes\": \"\" }");
             REQUIRE(!res);
             REQUIRE(
                 res.err_value().message
@@ -637,14 +637,14 @@ TEST_CASE("proson_value_parse_test")
     {
         SECTION("from enum value")
         {
-            auto res = proson::merge(&values, "{ \"ValEnum\": 1 }");
+            auto res = proson::merge(values, "{ \"ValEnum\": 1 }");
             REQUIRE(res);
             REQUIRE(values.valenum() == dto::EnumValue::Some);
         }
 
         SECTION("from invalid enum value")
         {
-            auto res = proson::merge(&values, "{ \"ValEnum\": 2 }");
+            auto res = proson::merge(values, "{ \"ValEnum\": 2 }");
             REQUIRE(!res);
             REQUIRE(
                 res.err_value().message
@@ -653,7 +653,7 @@ TEST_CASE("proson_value_parse_test")
 
         SECTION("from null")
         {
-            auto res = proson::merge(&values, "{ \"ValEnum\": null }");
+            auto res = proson::merge(values, "{ \"ValEnum\": null }");
             REQUIRE(!res);
             REQUIRE(res.err_value().message
                     == "expected type enum, but found value null at ValEnum");

@@ -11,7 +11,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("check default values")
     {
-        auto res = proson::merge(&parent, "{}");
+        auto res = proson::merge(parent, "{}");
 
         REQUIRE(res);
         REQUIRE(!parent.has_optionalchild());
@@ -36,7 +36,7 @@ TEST_CASE("proson_nested_parse_test")
     SECTION("parse nested values")
     {
         auto res = proson::merge(
-            &parent,
+            parent,
             R"({ "OptionalChild": { "x": 1.0, "y": 2.0 }, "RequiredChild": { "x": 3.0, "y": 4.0 } })");
 
         REQUIRE(res);
@@ -52,7 +52,7 @@ TEST_CASE("proson_nested_parse_test")
     SECTION("parse repeated values")
     {
         auto res
-            = proson::merge(&parent,
+            = proson::merge(parent,
                             R"({ "Children": [{ "x": 1.0, "y": 2.0 }, { "x": 3.0, "y": 4.0 }]})");
 
         REQUIRE(res);
@@ -67,7 +67,7 @@ TEST_CASE("proson_nested_parse_test")
     SECTION("parse repeated value error")
     {
         auto res
-            = proson::merge(&parent,
+            = proson::merge(parent,
                             R"({ "Children": [{ "x": 1.0, "y": 2.0 }, { "x": 3.0, "y": true }]})");
 
         REQUIRE(!res);
@@ -79,7 +79,7 @@ TEST_CASE("proson_nested_parse_test")
     {
         SECTION("parse")
         {
-            auto res = proson::merge(&parent,
+            auto res = proson::merge(parent,
                                      R"({ "RepDouble": [2.0,3.0] })");
 
             REQUIRE(res);
@@ -90,7 +90,7 @@ TEST_CASE("proson_nested_parse_test")
 
         SECTION("error")
         {
-            auto res = proson::merge(&parent,
+            auto res = proson::merge(parent,
                                      R"({ "RepDouble": [true] })");
 
             REQUIRE(!res);
@@ -101,7 +101,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated float")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepFloat": [ 2.0, 3.0 ] })");
 
         REQUIRE(res);
@@ -112,7 +112,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated int32")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepInt32": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -123,7 +123,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated int64")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepInt64": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -134,7 +134,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated uint32")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepUInt32": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -145,7 +145,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated uint64")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepUInt64": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -156,7 +156,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated sint32")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepSInt32": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -167,7 +167,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated sint64")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepSInt64": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -178,7 +178,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated fixed32")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepFixed32": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -189,7 +189,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated uint64")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepFixed64": [ 2, 3 ] })");
 
         REQUIRE(res);
@@ -200,7 +200,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated bool")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepBool": [ true, false ] })");
 
         REQUIRE(res);
@@ -211,7 +211,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated string")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepString": [ "hello", "world" ] })");
 
         REQUIRE(res);
@@ -222,7 +222,7 @@ TEST_CASE("proson_nested_parse_test")
 
     SECTION("repeated bytes")
     {
-        auto res = proson::merge(&parent,
+        auto res = proson::merge(parent,
                                  R"({ "RepBytes": [ "" ] })");
 
         REQUIRE(!res);
@@ -232,7 +232,7 @@ TEST_CASE("proson_nested_parse_test")
     {
         SECTION("parse")
         {
-            auto res = proson::merge(&parent,
+            auto res = proson::merge(parent,
                                      R"({ "RepEnum": [ 1, 3 ] })");
 
             REQUIRE(res);
@@ -243,7 +243,7 @@ TEST_CASE("proson_nested_parse_test")
 
         SECTION("error")
         {
-            auto res = proson::merge(&parent,
+            auto res = proson::merge(parent,
                                      R"({ "RepEnum": [ 1, 2 ] })");
 
             REQUIRE(!res);

@@ -325,13 +325,19 @@ namespace {
 
         return result::ok();
     }
+
+    result_value<json> dump_fields(const std::shared_ptr<FieldRef>& parent_ref,
+                                   const google::protobuf::Message& m)
+    {
+        return result_value<json>::ok("");
+    }
 }
 
-result proson::merge(google::protobuf::Message* m, const std::string& json_string)
+result proson::merge(google::protobuf::Message& m, const std::string& json_string)
 {
     try {
         auto json = json::parse(json_string);
-        return merge_fields(nullptr, m, json);
+        return merge_fields(nullptr, &m, json);
     } catch (std::invalid_argument& e) {
         return result::err(error_json_parse(e.what()));
     }

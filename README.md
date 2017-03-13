@@ -42,7 +42,7 @@ TEST_CASE("example_test") // uses #include "catch.hpp" for testing
 {
     Servo servo;
     
-    auto merge_ok = proson::merge(&servo, R"json(
+    auto merge_ok = proson::merge(servo, R"json(
         {
             "targets": [
                 {
@@ -91,7 +91,7 @@ TEST_CASE("incomplete data")
     Servo servo;
     servo.set_air(Air::Cold); // set existing value
 
-    auto merge_ok = proson::merge(&servo, R"json(
+    auto merge_ok = proson::merge(servo, R"json(
         {
             "targets": [
                 {
@@ -124,7 +124,7 @@ TEST_CASE("nice_errors")
 {
     Servo servo;
 
-    auto merge_ok = proson::merge(&servo, R"json(
+    auto merge_ok = proson::merge(servo, R"json(
         {
             "targets": [
                 {

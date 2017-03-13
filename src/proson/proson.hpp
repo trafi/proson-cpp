@@ -10,9 +10,9 @@
 
 #pragma once
 
-#include <proson/error.hpp>
 #include <google/protobuf/message.h>
+#include <proson/error.hpp>
 
 namespace proson {
-    result merge(google::protobuf::Message* m, const std::string& json_string);
+    result merge(google::protobuf::Message& m, const std::string& json_string);
 }
