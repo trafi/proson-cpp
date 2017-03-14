@@ -72,7 +72,7 @@ TEST_CASE("proson_nested_parse_test")
 
         REQUIRE(!res);
         REQUIRE(res.err_value().message
-                == "expected type double, but found value true at Children[1].y");
+                == "expected type float, but found value true at Children[1].y");
     }
 
     SECTION("repeated double")

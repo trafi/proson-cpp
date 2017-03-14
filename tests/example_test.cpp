@@ -1,7 +1,7 @@
 #include "catch.hpp"
 
-#include <proson/proson.hpp>
 #include "example_dto.pb.h"
+#include <proson/proson.hpp>
 
 using namespace proson;
 using namespace example_dto;
@@ -101,5 +101,17 @@ TEST_CASE("example_test")
         REQUIRE(!merge_ok);
         REQUIRE(merge_ok.err_value().message
                 == "expected type object, but found value \"hello error\" at targets[0].pos");
+    }
+
+    SECTION("dump_data")
+    {
+        Servo servo;
+        servo.set_rpm(500);
+        servo.add_targets()->mutable_pos()->set_x(5);
+
+        auto dump_res = proson::dump(servo);
+
+        REQUIRE(dump_res);
+        REQUIRE(dump_res.ok_value() == R"json({"rpm":500.0,"targets":[{"pos":{"x":5.0}}]})json");
     }
 }

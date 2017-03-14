@@ -11,6 +11,7 @@ add_executable(${TARGET}
         proson_value_parse_test.cpp
         proson_nested_parse_test.cpp
         example_test.cpp
+        proson_dump_test.cpp
         )
 
 target_link_libraries(${TARGET}

@@ -19,6 +19,8 @@ namespace proson {
     namespace internal {
         result_value<std::string> to_string(const std::shared_ptr<FieldRef>& field_ref,
                                             const nlohmann::json& value);
+        result_value<float> to_float(const std::shared_ptr<FieldRef>& field_ref,
+                                       const nlohmann::json& value);
         result_value<double> to_double(const std::shared_ptr<FieldRef>& field_ref,
                                        const nlohmann::json& value);
         result_value<int32_t> to_int32(const std::shared_ptr<FieldRef>& field_ref,

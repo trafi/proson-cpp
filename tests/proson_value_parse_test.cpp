@@ -60,7 +60,7 @@ TEST_CASE("proson_value_parse_test")
             auto res_f = proson::merge(values, "{ \"ValFloat\": false }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
-                    == "expected type double, but found value false at ValFloat");
+                    == "expected type float, but found value false at ValFloat");
         }
 
         SECTION("from string")
@@ -73,7 +73,7 @@ TEST_CASE("proson_value_parse_test")
             auto res_f = proson::merge(values, "{ \"ValFloat\": \"22\" }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
-                    == "expected type double, but found value \"22\" at ValFloat");
+                    == "expected type float, but found value \"22\" at ValFloat");
         }
 
         SECTION("from array")
@@ -86,7 +86,7 @@ TEST_CASE("proson_value_parse_test")
             auto res_f = proson::merge(values, "{ \"ValFloat\": [] }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
-                    == "expected type double, but found value [] at ValFloat");
+                    == "expected type float, but found value [] at ValFloat");
         }
 
         SECTION("from object")
@@ -99,7 +99,7 @@ TEST_CASE("proson_value_parse_test")
             auto res_f = proson::merge(values, "{ \"ValFloat\": {} }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
-                    == "expected type double, but found value {} at ValFloat");
+                    == "expected type float, but found value {} at ValFloat");
         }
 
         SECTION("from null")
@@ -112,7 +112,7 @@ TEST_CASE("proson_value_parse_test")
             auto res_f = proson::merge(values, "{ \"ValFloat\": null }");
             REQUIRE(!res_f);
             REQUIRE(res_f.err_value().message
-                    == "expected type double, but found value null at ValFloat");
+                    == "expected type float, but found value null at ValFloat");
         }
     }
 

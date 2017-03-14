@@ -29,6 +29,22 @@ result_value<string> proson::internal::to_string(const std::shared_ptr<FieldRef>
     }
 }
 
+result_value<float> proson::internal::to_float(const shared_ptr<FieldRef>& field_ref,
+                                               const json& value)
+{
+    switch (value.type()) {
+        case json::value_t::number_integer:
+            return result_value<float>::ok(value.get<int64_t>());
+        case json::value_t::number_unsigned:
+            return result_value<float>::ok(value.get<uint64_t>());
+        case json::value_t::number_float:
+            return result_value<float>::ok(value.get<float>());
+        default:
+            return result_value<float>::err(
+                error_json_field_invalid_type(field_ref, "float", value.dump()));
+    }
+}
+
 result_value<double> proson::internal::to_double(const shared_ptr<FieldRef>& field_ref,
                                                  const json& value)
 {

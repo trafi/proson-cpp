@@ -1,6 +1,6 @@
 # Proson
 
-Merge JSON data into any Protobuf object at runtime. Requires C++14 (see requirements section bellow).
+Convert data between Protobuf and JSON at runtime. Requires C++14 (see requirements section bellow).
 
 ## Examples
 
@@ -137,6 +137,24 @@ TEST_CASE("nice_errors")
     REQUIRE(!merge_ok);
     REQUIRE(merge_ok.err_value().message
             == "expected type object, but found value \"hello error\" at targets[0].pos");
+}
+```
+
+### Dumping to JSON
+
+Dump value to JSON and skip default values (by default):
+
+```cpp
+TEST_CASE("dump_data")
+{
+    Servo servo;
+    servo.set_rpm(500);
+    servo.add_targets()->mutable_pos()->set_x(5);
+
+    auto dump_res = proson::dump(servo);
+
+    REQUIRE(dump_res);
+    REQUIRE(dump_res.ok_value() == R"json({"rpm":500.0,"targets":[{"pos":{"x":5.0}}]})json");
 }
 ```
 

@@ -15,4 +15,7 @@
 
 namespace proson {
     result merge(google::protobuf::Message& m, const std::string& json_string);
+    result_value<std::string> dump(const google::protobuf::Message& m,
+                                   const int indent = -1,
+                                   const bool skip_default_values = true);
 }
